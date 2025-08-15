@@ -1,0 +1,8 @@
+services:
+  openingest:
+    build: .
+    volumes:
+      - ./documents:/app/documents:ro
+      - ./processed:/app/processed
+    working_dir: /app
+    command: uv run openingest documents/ -o processed/ --verbose
